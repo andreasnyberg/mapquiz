@@ -1,0 +1,17 @@
+// GENERAL
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+	background-color: #ddd;
+}
+// GENERAL end
+
+h1 {
+	color: tomato;
+	text-align: center;
+}

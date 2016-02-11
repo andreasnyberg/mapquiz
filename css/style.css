@@ -1,6 +1,14 @@
 *:focus { outline: 0 !important; }
 html { padding: 0; }
-body { background-color: #333; }
+body { 
+	background-color: #333; 
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.light-box {
+	background-color: yellow;
+}
 
 table, th, td {
     border: 1px solid white;
@@ -36,7 +44,7 @@ h3 {
 }
 
 h4 {
-	color: #2F9400;
+	color: #37AD00;
 	margin: 0;
 }
 
@@ -44,6 +52,10 @@ h5 {
 	color: #2F9400;
 	font-size: 16px;
 	margin-top: 20px;
+}
+
+.marginTop {
+	margin-top: 19px !important;
 }
 
 /************************************************************/
@@ -61,20 +73,14 @@ h5 {
 	   -moz-box-shadow: 0 7px 9px -8px black;
 	        box-shadow: 0 7px 9px -8px black;
 }
+
+
 /************************************************************/
-/*********************** FONT AWSEOME ***********************/
+/******************* HIDE STUFF ON MOBILE *******************/
 /************************************************************/
-
-
-
-/*.hidden {
+.hidden {
 	display: none;
 }
-
-.visible {
-	display: block;
-}
-*/
 
 
 /****************** INDEX CONTENT *******************/
@@ -144,49 +150,67 @@ input:focus, .uneditable-input:focus {
   	        border-radius: 50px;
 
 	color: #eee !important;
-	font-size: 18px;
-	/*font-weight: 400;*/
-	height: 55px;
+	font-size: 17px;
+	height: 56px;
 	letter-spacing: 0.08em;
 	outline: none;
+	transition: all 0.2s ease;
 	word-spacing: 5px;
 }
+
+.btn:hover { 
+	-webkit-transform: scale(1.02);
+	-ms-transform: scale(1.02);
+    transform: scale(1.02); 
+
+	-webkit-box-shadow: 0px 0px 66px -15px rgba(23,23,23,1);
+	-moz-box-shadow: 0px 0px 66px -15px rgba(23,23,23,1);
+	box-shadow: 0px 0px 66px -15px rgba(23,23,23,1);
+}
+
+.btn:active {
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+    transform: scale(1); 
+}
+
 /********************** GREEN **********************/
 .btnGreen { background-color: #3DBF00; }
-.btnGreen:hover { background-color: #3DAB00; }
-.btnGreen:active { background-color: #3D9700; }
-
 
 /********************** GREY **********************/
 .btnGrey { background-color: #444; color: #aaa !important; }
-.btnGrey:hover, 
-.btnGrey:active { background-color: #404040; }
  
 /********************** YELLOW **********************/
 .btnYellow { background-color: #F5A400; }
-.btnYellow:hover { background-color: #DB9300; }
-.btnYellow:active { background-color: #D48E00; }
 
 /********************** ORANGE **********************/
 .btnOrange { background-color: #E85A0C; }
-.btnOrange:hover { background-color: #D9540B; }
-.btnOrange:active { background-color: #C94E0A; }
 
 /********************** RED **********************/
-.btnRed { background-color: #FF0053; }
-.btnRed:hover { background-color: #E5004B; }
-.btnRed:active { background-color: #D60046; }
+.btnRed { background-color: #FF2A3B; }
 
 .btnGreen, 
 .btnGrey {
+	/*float: right;*/
 	margin-bottom: 30px;
-	width: 100%;
+}
+
+.btnWtf {
+	float: left;   
+	position: relative;
+	/*left: 10px;*/
+}
+
+/* leave map/back to menu */
+.backToMaps {
+	float: right;
+ 	z-index: 999;
 }
 
 .btnYellow,
 .btnOrange,
 .btnRed {
-	margin-bottom: 20px;
+	margin-bottom: 28px;
 	width: 100%;
 }
 
@@ -196,38 +220,17 @@ input:focus, .uneditable-input:focus {
 
 .btnOk { margin-top: 10px; }
 
-/********************** SMALL **********************/
 .btnSmall {
-	font-size: 13px;
-	height: 40px;
+	height: 46px;
 }
 
 .btnSmall i { 
-	font-size: 11px;
-	margin-right: 7px; 
+	font-size: 20px;
 }
 
-/*.playGroundBtns a {
-	color: #eee;
-}*/
-
-
-/*.playGroundBtn {
-	margin-bottom: 20px;
-	
-}*/
-
-/*#map1 {
-	background: url('../img/map1.png') center;
-}*/
-
-/*#map2 {
-	background: url('../img/map2.png') center;
+.btnSmallest {
+	width: 46px;
 }
-
-#map3 {
-	background: url('../img/map3.png') center;
-}*/
 
 .btnBack {
 	display: none;
@@ -236,32 +239,24 @@ input:focus, .uneditable-input:focus {
 /* done + next-buttons */
 .divMiddle button {
 	display: none;
+	font-size: 13px;
 	width: 100%;
 	z-index: 9979;
 }
 
-button.backToMaps {
-    left: -15px;
-    position: relative;
- 	width: 40px;
- 	z-index: 999;
-}
 
-button.backToMaps .fa-times {
-	margin: 0 auto;
-	font-size: 18px;
-}
+/* BTN NEXT */
+.divMiddle button#next {
+	display: none;
 
-/* button div */
-.btnBack,
-.btnLogout {
-	position: absolute;
-	top: 17px;
+	background-color: #555;
+	color: #bbb !important;
+	padding: 6px 7px;
 }
-
-.btnBack button,
-.btnLogout button {
-	width: 95px;
+/* arrow */
+.divMiddle button#next i {
+	margin-left: 5px;
+    font-size: 11px;
 }
 
 
@@ -272,79 +267,88 @@ button.backToMaps .fa-times {
 }
 
 .header button {
-	margin: 15px 0;
+	margin: 11px 0;
 }
 
+/******************** HEADER ********************/
+.divLeft,
+.divRight {
+	display: none; /* varför denna? */
+}
+
+.divMiddle,
+.divRight,
+.divRight2 {
+	/*padding-left: 5px !important;
+	padding-right: 5px !important;*/
+	
+}
+
+.divRight button,
+.divRight2 button {
+	float: right;
+}
+
+    
 
 
 /******************** LEFT COLUMN ********************/
-.divLeft,
-.divRight {
-	display: none;
-}
-
 .divLeft {
-	padding-right: 0;
+	padding-left: 9px;
 }
 
 .divLeft #q1 {
 	font-size: 14px;
+	letter-spacing: 0.02em;
 	margin: 15px 0 5px 0;
 } 
 
 .divLeft #q2 {
-	font-size: 12px;
-	margin: 5px 0 15px 0;
-	letter-spacing: 0.0625em;
+	font-size: 13px;
+    margin: 5px 0 15px 0;
+    letter-spacing: 0.3px;
+    line-height: 1.2;
 }
 
 
 /******************** MIDDLE COLUMN ********************/
-.divBottom {
-	
-}
-
 .divMiddle {
+	padding-left: 0;
 	text-align: center;
 }
 
-.divMiddle button#next {
-	display: none;
-
-	background-color: #555;
-	color: #ccc !important;
-}
-.divMiddle button#next i {
-	margin-left: 7px;
+.divMiddle button {
+	
 }
 
 
-
-/*.divMiddle {
-	position: relative;
-}*/
-
-/*.divMiddle button#done {
-	background-color: #3DBF00;
-	color: #ddd;
- 	float: left; 	
-}*/
-
-
-
-/*.glyphicon-circle-arrow-right {
-	color: blue;
-	display: inline-block;
-}*/
 
 
 
 /******************** RIGHT COLUMN ********************/
 
 .divRight { 
-	padding-right: 15px;
+	/*text-align: center; */
+	padding-right: 7px;
+}
+
+.divRight2 { 
+	padding-right: 10px;
+}
+
+.divRight2 {
 	text-align: center; 
 }
+
+#lightboxWelcome {
+	background-color: #333;
+	/*display: none;*/
+
+}
+
+/*#lightboxWtf { display: none; }*/
+
+
 
 /****************** HIGHSCORE TABLE******************/
 .highscore { position: relative; }
@@ -375,11 +379,9 @@ td { color: #ddd; }
 
 
 
-/***************** MEDIA QUERIES *****************/
-@media only screen and (min-width: 480px) {
+/**************************************** BIG MOBILE? ****************************************/
 
-	.divLeft #q1 { font-size: 20px; }
-	.divLeft #q2 { font-size: 14px; }
+@media only screen and (min-width: 480px) {
 
 	.btnBack, 
 	.btnLogout { width: 100%; }
@@ -387,30 +389,23 @@ td { color: #ddd; }
 
 	.btnOk { margin-top: 30px; }
 
-	input[type="text"], input[type="password"] {
-		font-size: 20px;
-	}
-
-	.logInForm,
-	.signUpForm { margin-top: 100px; }
-
 	.playGroundBtns {
 		margin-top: 80px;
 	}
 }
 
+/**************************************** TABLET ****************************************/
 @media only screen and (min-width: 768px) {
 
-	h1 { 
-		font-size: 130px;	
-	} 
+	h1 { font-size: 130px; } 
+	h3 { font-size: 40px; }
+	h5 { font-size: 24px; }
 
-	h3 {
-		font-size: 40px;
-	}
+	.divLeft #q1 { font-size: 20px; }
+	.divLeft #q2 { font-size: 14px; }
 
-	h5 {
-		font-size: 24px;
+	.hidden {
+		display: inline-block !important;
 	}
 
 	.btnBack,
@@ -424,23 +419,46 @@ td { color: #ddd; }
 		width: 260px;
 	}
 
-	.loginSignupButtons {
-   		margin-top: 255px;
+	.btnSmall {
+		font-size: 16px;
+	}
+	
+	.backToMaps {
+		width: 100%;
 	}
 
-	/* form container */
-	.logInForm,
-	.signUpForm { margin-top: 150px; }
+	.backToMaps i {
+		margin-left: 8px;
+	}
 
-	/* form */
-	#logInForm,
-	.signUpForm { text-align: center; }
-
+/* VAD ÄR DETTA????????? */
 	.indexRow {
 		margin-top: 150px;
 	}
+
+	.divLeft {
+	    padding-left: 19px;
+	}
+
+	.divMiddle button {
+		font-size: 16px;
+	}
+
+	.divMiddle button#next {
+		padding: 6px 7px 6px 18px;
+	}
+	
+	.divMiddle button#next i {
+	    font-size: 13px;
+	    margin-left: 9px;
+	}
+
+	.marginTop {
+	    margin-top: 24px !important;
+	}
 }
 
+/**************************************** DESKTOP SMALL ****************************************/
 @media only screen and (min-width: 992px) {
 	h1 { 
 		font-size: 170px;	
@@ -453,24 +471,24 @@ td { color: #ddd; }
 	.btnOk {
 		width: 210px;
 	}
+
+	.divLeft #q2 {
+		font-size: 16px;
+	}
+
+	.divRight2 {
+	    padding-right: 15px;
+	}
 	
 }
 
-
+/**************************************** DESKTOP BIG ****************************************/
 @media only screen and (min-width: 1200px) {
+	.divMiddle button {
+		max-width: 345px !important;
+	}
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	.divRight2 button {
+		max-width: 300px !important;
+	}
+}	

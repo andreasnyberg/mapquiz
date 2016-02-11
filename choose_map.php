@@ -21,7 +21,7 @@ if($_SESSION['status'] != 'loggedin') {
                 </form> 
             </div>
 
-            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-offset-4 col-md-4 playGroundBtns">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-offset-4 col-md-4 col-lg-offset-6 col-lg-2 playGroundBtns">
                 <a href="playtime.php?map=0">
                     <button class="btn btnYellow">EUROPE</button>
                 </a>
